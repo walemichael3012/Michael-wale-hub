@@ -573,6 +573,51 @@ function checkAnswer(answer) {
 }
 
 </script>
+<section id="studentDashboard" style="padding:20px;">
+    <h2>🎓 Student Dashboard</h2>
 
+    <div class="dashboard-card">
+        <h3>👨‍🎓 Registered Students</h3>
+        <h1 id="studentCount">0</h1>
+    </div>
+
+    <div class="dashboard-card">
+        <h3>🏆 Leaderboard</h3>
+        <div id="leaderboard">
+            Loading students...
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <h3>📢 Announcements</h3>
+        <div id="announcements">
+            No announcements yet.
+        </div>
+    </div>
+</section>
+   <script>
+db.collection("users").onSnapshot((snapshot) => {
+
+    document.getElementById("studentCount").innerText =
+        snapshot.size;
+
+    let students = "";
+
+    snapshot.forEach((doc) => {
+        const student = doc.data();
+
+        students += `
+            <p>
+                👤 ${student.name || "Student"}
+                - ${student.email || ""}
+            </p>
+        `;
+    });
+
+    document.getElementById("leaderboard").innerHTML =
+        students || "No students registered yet.";
+
+});
+                                  </script> 
 </body>
 </html>
