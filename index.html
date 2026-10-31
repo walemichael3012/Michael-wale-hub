@@ -3,16 +3,14 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="google site verification"
-    content=https://walemichael3012.github.io/Michael-wale-hub/>
-<head/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Michael Wale Hub</title>
 
 <style>
 
 * {
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -30,16 +28,12 @@ header {
 
 header h1 {
     color: #00aaff;
-    margin: 0;
 }
 
 nav {
     background: #061126;
     padding: 14px;
     text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
 }
 
 nav a {
@@ -49,34 +43,34 @@ nav a {
     display: inline-block;
 }
 
-nav a:hover {
-    color: #00aaff;
-}
-
-.hero {
-    text-align: center;
-    padding: 65px 20px;
-    background: linear-gradient(135deg, #102b55, #0077cc);
-}
-
-.hero h2 {
-    font-size: 32px;
-}
-
 .button {
-    display: inline-block;
     background: #00aaff;
     color: white;
-    padding: 13px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 12px;
+    padding: 12px 20px;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 8px;
 }
 
-.button:hover {
-    background: #0088cc;
+input {
+    width: 90%;
+    max-width: 400px;
+    padding: 13px;
+    margin: 8px;
+    border-radius: 7px;
+    border: none;
+}
+
+#authScreen {
+    text-align: center;
+    padding: 35px 15px;
+}
+
+#mainSite {
+    display: none;
 }
 
 .section {
@@ -90,14 +84,13 @@ nav a:hover {
 
 .cards {
     display: grid;
-    grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 18px;
     max-width: 1050px;
     margin: auto;
 }
 
-.card {
+.card, .quiz-box {
     background: #102b55;
     padding: 25px;
     border-radius: 12px;
@@ -107,34 +100,20 @@ nav a:hover {
     color: #00aaff;
 }
 
-.search-box {
-    width: 90%;
-    max-width: 450px;
-    padding: 13px;
-    border-radius: 8px;
-    border: none;
-    margin: 10px;
-}
-
-.quiz-box {
-    background: #102b55;
-    max-width: 500px;
-    margin: auto;
-    padding: 25px;
-    border-radius: 12px;
-}
-
-.quiz-box button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #102b55, #0077cc);
 }
 
 footer {
     background: #061126;
     padding: 22px;
     text-align: center;
-    margin-top: 30px;
+}
+
+#message {
+    color: #ffcc00;
 }
 
 </style>
@@ -142,17 +121,70 @@ footer {
 
 <body>
 
+<!-- REGISTRATION AND LOGIN -->
+
+<div id="authScreen">
+
+    <h1 style="color:#00aaff;">MICHAEL WALE HUB</h1>
+
+    <h2 id="authTitle">Create Your Account</h2>
+
+    <input id="name" type="text"
+    placeholder="Your name">
+
+    <br>
+
+    <input id="email" type="email"
+    placeholder="Email address">
+
+    <br>
+
+    <input id="password" type="password"
+    placeholder="Password (at least 6 characters)">
+
+    <br>
+
+    <button class="button" onclick="register()">
+        Sign Up
+    </button>
+
+    <button class="button" onclick="login()">
+        Login
+    </button>
+
+    <p id="message"></p>
+
+    <p>Welcome to Michael Wale Hub!</p>
+
+</div>
+
+
+<!-- MAIN WEBSITE -->
+
+<div id="mainSite">
+
 <header>
+
     <h1>MICHAEL WALE HUB</h1>
+
     <p>Learn • Play • Connect</p>
+
+    <p id="welcome"></p>
+
+    <button class="button" onclick="logout()">
+        Logout
+    </button>
+
 </header>
 
 <nav>
+
     <a href="#home">Home</a>
     <a href="#education">Education</a>
     <a href="#games">Games</a>
     <a href="#quiz">Quiz</a>
     <a href="#news">News</a>
+
 </nav>
 
 <section class="hero" id="home">
@@ -164,10 +196,6 @@ footer {
         compete and connect with people.
     </p>
 
-    <a href="#education" class="button">
-        Get Started
-    </a>
-
 </section>
 
 <section class="section">
@@ -177,70 +205,86 @@ footer {
     <div class="cards">
 
         <div class="card" id="education">
+
             <h3>📚 Education</h3>
+
             <p>Find questions and lessons in different subjects.</p>
 
-            <input
-                class="search-box"
-                id="subject"
-                placeholder="Search a subject">
+            <input id="subject"
+            placeholder="Search a subject">
 
             <button class="button" onclick="searchEducation()">
                 Search Google
             </button>
+
         </div>
 
         <div class="card" id="games">
+
             <h3>🎮 Gaming</h3>
-            <p>Discover online games and gaming information.</p>
+
+            <p>Discover online games.</p>
 
             <a class="button"
             href="https://www.google.com/search?q=free+online+browser+games"
-            target="_blank" rel="noopener">
+            target="_blank">
                 Explore Games
             </a>
+
         </div>
 
         <div class="card">
+
             <h3>🏆 Competitions</h3>
-            <p>Discover quizzes and learning competitions.</p>
+
+            <p>Discover quizzes and competitions.</p>
 
             <a class="button"
             href="https://www.google.com/search?q=student+online+quiz+competitions"
-            target="_blank" rel="noopener">
+            target="_blank">
                 Explore
             </a>
+
         </div>
 
-        <div class="card" id="community">
+        <div class="card">
+
             <h3>🌍 Community</h3>
-            <p>Discover communities where people share ideas.</p>
+
+            <p>Discover communities.</p>
 
             <a class="button"
             href="https://groups.google.com/"
-            target="_blank" rel="noopener">
+            target="_blank">
                 Explore Community
             </a>
+
         </div>
 
         <div class="card" id="quiz">
+
             <h3>🧠 Quizzes</h3>
-            <p>Test your knowledge with a quick quiz.</p>
+
+            <p>Test your knowledge.</p>
 
             <button class="button" onclick="startQuiz()">
                 Start Quiz
             </button>
+
         </div>
 
         <div class="card" id="news">
+
             <h3>📰 News</h3>
+
             <p>Stay updated with interesting news.</p>
 
             <a class="button"
             href="https://news.google.com/"
-            target="_blank" rel="noopener">
+            target="_blank">
                 Read News
             </a>
+
         </div>
 
     </div>
@@ -253,7 +297,7 @@ footer {
 
     <div class="quiz-box">
 
-        <h3 id="question">Press Start Quiz to begin!</h3>
+        <h3 id="question">Press Start Quiz!</h3>
 
         <div id="answers"></div>
 
@@ -273,27 +317,154 @@ footer {
 
 </footer>
 
+</div>
+
+
+<!-- FIREBASE -->
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+
 <script>
+
+// FIREBASE CONFIGURATION
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBFBp8Am9gFUsDjOLkbENVh7e2YIUwo-S8",
+    authDomain: "michael-wale-hub.firebaseapp.com",
+    databaseURL: "https://michael-wale-hub-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "michael-wale-hub",
+    storageBucket: "michael-wale-hub.firebasestorage.app",
+    messagingSenderId: "619422349274",
+    appId: "1:619422349274:web:a7682ffd8a1ba083cab2e3"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+
+
+// REGISTRATION
+
+function register() {
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (!name || !email || !password) {
+        showMessage("Please fill in all the boxes.");
+        return;
+    }
+
+    if (password.length < 6) {
+        showMessage("Password must be at least 6 characters.");
+        return;
+    }
+
+    auth.createUserWithEmailAndPassword(email, password)
+
+    .then(function(userCredential) {
+
+        return userCredential.user.updateProfile({
+            displayName: name
+        });
+
+    })
+
+    .catch(function(error) {
+        showMessage(error.message);
+    });
+
+}
+
+
+// LOGIN
+
+function login() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        showMessage("Enter your email and password.");
+        return;
+    }
+
+    auth.signInWithEmailAndPassword(email, password)
+
+    .catch(function(error) {
+        showMessage(error.message);
+    });
+
+}
+
+
+// LOGOUT
+
+function logout() {
+
+    auth.signOut();
+
+}
+
+
+// CHECK LOGIN STATUS
+
+auth.onAuthStateChanged(function(user) {
+
+    if (user) {
+
+        document.getElementById("authScreen").style.display = "none";
+
+        document.getElementById("mainSite").style.display = "block";
+
+        document.getElementById("welcome").innerText =
+            "Welcome, " + (user.displayName || user.email);
+
+    } else {
+
+        document.getElementById("authScreen").style.display = "block";
+
+        document.getElementById("mainSite").style.display = "none";
+
+    }
+
+});
+
+
+// SHOW MESSAGES
+
+function showMessage(message) {
+
+    document.getElementById("message").innerText = message;
+
+}
+
+
+// EDUCATION SEARCH
 
 function searchEducation() {
 
     let subject = document.getElementById("subject").value.trim();
 
-    if (subject === "") {
-        alert("Please enter a subject first.");
+    if (!subject) {
+        alert("Enter a subject first.");
         return;
     }
 
-    let search = encodeURIComponent(
-        subject + " lessons questions and answers"
-    );
-
     window.open(
-        "https://www.google.com/search?q=" + search,
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(subject + " lessons questions and answers"),
         "_blank"
     );
 
 }
+
+
+// QUIZ
 
 const questions = [
 
@@ -353,21 +524,14 @@ function showQuestion() {
 
     let q = questions[currentQuestion];
 
-    document.getElementById("question").innerText =
-        q.question;
-
-    document.getElementById("result").innerText = "";
+    document.getElementById("question").innerText = q.question;
 
     let html = "";
 
     q.answers.forEach(function(answer) {
 
-        html +=
-        '<button class="button" onclick="checkAnswer(\'' +
-        answer +
-        '\')">' +
-        answer +
-        '</button>';
+        html += '<button class="button" onclick="checkAnswer(\'' +
+        answer + '\')">' + answer + '</button>';
 
     });
 
@@ -381,13 +545,11 @@ function checkAnswer(answer) {
 
         score++;
 
-        document.getElementById("result").innerText =
-            "Correct!";
+        document.getElementById("result").innerText = "Correct!";
 
     } else {
 
-        document.getElementById("result").innerText =
-            "Not quite. Keep learning!";
+        document.getElementById("result").innerText = "Try again next time!";
 
     }
 
