@@ -425,7 +425,11 @@ function logout() {
 auth.onAuthStateChanged(function(user) {
 
     if (user) {
-saveStudent(user);
+saveStudent(user).then(() => {
+    console.log("Student saved successfully!");
+}).catch((error) => {
+    console.error("Save error:", error);
+});
         document.getElementById("authScreen").style.display = "none";
 
         document.getElementById("mainSite").style.display = "block";
