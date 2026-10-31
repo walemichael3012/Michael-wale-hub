@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Michael Wale Hub</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #07152e;
+    color: white;
+}
+
+header {
+    background: #102b55;
+    padding: 22px;
+    text-align: center;
+}
+
+header h1 {
+    color: #00aaff;
+    margin: 0;
+}
+
+nav {
+    background: #061126;
+    padding: 14px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: #00aaff;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg, #102b55, #0077cc);
+}
+
+.hero h2 {
+    font-size: 32px;
+}
+
+.button {
+    display: inline-block;
+    background: #00aaff;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #0088cc;
+}
+
+.section {
+    padding: 35px 15px;
+    text-align: center;
+}
+
+.section h2 {
+    color: #00aaff;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.card {
+    background: #102b55;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.card h3 {
+    color: #00aaff;
+}
+
+.search-box {
+    width: 90%;
+    max-width: 450px;
+    padding: 13px;
+    border-radius: 8px;
+    border: none;
+    margin: 10px;
+}
+
+.quiz-box {
+    background: #102b55;
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.quiz-box button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+footer {
+    background: #061126;
+    padding: 22px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MICHAEL WALE HUB</h1>
+    <p>Learn • Play • Connect</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#education">Education</a>
+    <a href="#games">Games</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#news">News</a>
+</nav>
+
+<section class="hero" id="home">
+
+    <h2>Welcome to Michael Wale Hub!</h2>
+
+    <p>
+        Learn new things, play exciting games,
+        compete and connect with people.
+    </p>
+
+    <a href="#education" class="button">
+        Get Started
+    </a>
+
+</section>
+
+<section class="section">
+
+    <h2>Explore Our Hub</h2>
+
+    <div class="cards">
+
+        <div class="card" id="education">
+            <h3>📚 Education</h3>
+            <p>Find questions and lessons in different subjects.</p>
+
+            <input
+                class="search-box"
+                id="subject"
+                placeholder="Search a subject">
+
+            <button class="button" onclick="searchEducation()">
+                Search Google
+            </button>
+        </div>
+
+        <div class="card" id="games">
+            <h3>🎮 Gaming</h3>
+            <p>Discover online games and gaming information.</p>
+
+            <a class="button"
+            href="https://www.google.com/search?q=free+online+browser+games"
+            target="_blank" rel="noopener">
+                Explore Games
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>🏆 Competitions</h3>
+            <p>Discover quizzes and learning competitions.</p>
+
+            <a class="button"
+            href="https://www.google.com/search?q=student+online+quiz+competitions"
+            target="_blank" rel="noopener">
+                Explore
+            </a>
+        </div>
+
+        <div class="card" id="community">
+            <h3>🌍 Community</h3>
+            <p>Discover communities where people share ideas.</p>
+
+            <a class="button"
+            href="https://groups.google.com/"
+            target="_blank" rel="noopener">
+                Explore Community
+            </a>
+        </div>
+
+        <div class="card" id="quiz">
+            <h3>🧠 Quizzes</h3>
+            <p>Test your knowledge with a quick quiz.</p>
+
+            <button class="button" onclick="startQuiz()">
+                Start Quiz
+            </button>
+        </div>
+
+        <div class="card" id="news">
+            <h3>📰 News</h3>
+            <p>Stay updated with interesting news.</p>
+
+            <a class="button"
+            href="https://news.google.com/"
+            target="_blank" rel="noopener">
+                Read News
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>Quick Quiz</h2>
+
+    <div class="quiz-box">
+
+        <h3 id="question">Press Start Quiz to begin!</h3>
+
+        <div id="answers"></div>
+
+        <p id="result"></p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h3>MICHAEL WALE HUB</h3>
+
+    <p>Learn • Play • Connect</p>
+
+    <p>© 2026 Michael Wale Hub</p>
+
+</footer>
+
+<script>
+
+function searchEducation() {
+
+    let subject = document.getElementById("subject").value.trim();
+
+    if (subject === "") {
+        alert("Please enter a subject first.");
+        return;
+    }
+
+    let search = encodeURIComponent(
+        subject + " lessons questions and answers"
+    );
+
+    window.open(
+        "https://www.google.com/search?q=" + search,
+        "_blank"
+    );
+
+}
+
+const questions = [
+
+    {
+        question: "What is 5 × 6?",
+        answers: ["25", "30", "35"],
+        correct: "30"
+    },
+
+    {
+        question: "Which organ pumps blood?",
+        answers: ["Heart", "Lungs", "Kidney"],
+        correct: "Heart"
+    },
+
+    {
+        question: "What is the chemical symbol for water?",
+        answers: ["CO2", "O2", "H2O"],
+        correct: "H2O"
+    },
+
+    {
+        question: "How many sides has a triangle?",
+        answers: ["Three", "Four", "Five"],
+        correct: "Three"
+    }
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function startQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    showQuestion();
+
+}
+
+function showQuestion() {
+
+    if (currentQuestion >= questions.length) {
+
+        document.getElementById("question").innerText =
+            "Quiz Completed!";
+
+        document.getElementById("answers").innerHTML = "";
+
+        document.getElementById("result").innerText =
+            "Your score: " + score + " / " + questions.length;
+
+        return;
+
+    }
+
+    let q = questions[currentQuestion];
+
+    document.getElementById("question").innerText =
+        q.question;
+
+    document.getElementById("result").innerText = "";
+
+    let html = "";
+
+    q.answers.forEach(function(answer) {
+
+        html +=
+        '<button class="button" onclick="checkAnswer(\'' +
+        answer +
+        '\')">' +
+        answer +
+        '</button>';
+
+    });
+
+    document.getElementById("answers").innerHTML = html;
+
+}
+
+function checkAnswer(answer) {
+
+    if (answer === questions[currentQuestion].correct) {
+
+        score++;
+
+        document.getElementById("result").innerText =
+            "Correct!";
+
+    } else {
+
+        document.getElementById("result").innerText =
+            "Not quite. Keep learning!";
+
+    }
+
+    currentQuestion++;
+
+    setTimeout(showQuestion, 900);
+
+}
+
+</script>
+
+</body>
+</html>
